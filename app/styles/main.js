@@ -82,5 +82,20 @@ export default StyleSheet.create({
     },
     "input-group": {
         "paddingBottom": 10
+    },
+    "html": {
+        "position": "relative",
+        "minHeight": "100%"
+    },
+    "body": {
+        "marginBottom": 60
+    },
+    "footer": {
+        "position": "absolute",
+        "bottom": 0,
+        "width": "100%",
+        "height": 60,
+        "lineHeight": 60,
+        "backgroundColor": "#f5f5f5"
     }
 });
