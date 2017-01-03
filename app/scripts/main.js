@@ -1,15 +1,27 @@
+Vue.component('todo-item', {
+  props: ['todo'],
+  template: '\
+    <div class="input-group card-text" v-once>\
+      <span class="input-group-addon">\
+        <input type="checkbox" v-bind:checked="todo.status">\
+      </span>\
+      <label class="form-control">{{todo.description}}</label> \
+    </div>'
+});
+
 var app = new Vue({
     el: '#root',
     data: {
+        show: '',
         task: 'Add a task',
-        status: false,
         todos: [
-        ]
+        ],
+
     },
 
     methods: {
-      addTask: function(){
-        return this.todos.push(`{description: ${app.task}, status: false}`);
+      addTask(){
+        return this.todos.push({description: this.task, status: false});
       }
     },
 

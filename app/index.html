@@ -5,77 +5,90 @@
     <meta charset="UTF-8">
     <title>ToDo Vue</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="styles/main.css">
 </head>
 
-<body >
+<body>
     <div class="container-fluid">
-      <div class="row">
-        <div class="col-md-12 text-xs-center bg-success">
-          <br/>
-          <h3 class="text-white">ToDo Vue</h3>
-          <h5 class="text-white">A Simple ToDo List</h5>
-          <br/>
-        </div>
-      </div>
-      <div id="root">
-      <div class="row">
-        <div class="offset-md-3 col-md-6">
-          <br/>
-          <div class="input-group card-text">
-            <input type="text" class="form-control"  v-model="task">
-            <span class="input-group-btn">
-              <button class="btn btn-success" type="button" @click="addTask">Add</button>
-            </span>
-          </div>
-          <br/>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row">
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h3 class="card-title">All Tasks</h3>
-              <div class="input-group card-text">
-                <span class="input-group-addon">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </span>
-                <input type="text" class="form-control" aria-label="Text input with checkbox">
-              </div>
+        <div class="row">
+            <div class="col-md-12 text-xs-center bg-success">
+                <br/>
+                <h3 class="text-white">ToDo Vue</h3>
+                <h5 class="text-white">A Simple ToDo List</h5>
+                <br/>
             </div>
-          </div>
         </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h3 class="card-title">Complete Tasks</h3>
-              <div class="input-group card-text">
-                <span class="input-group-addon">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </span>
-                <input type="text" class="form-control" aria-label="Text input with checkbox">
-              </div>
+        <div id="root">
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-3 col-md-6">
+                        <br/>
+                        <div class="input-group card-text">
+                            <input type="text" class="form-control" v-model="task">
+                            <span class="input-group-btn">
+                              <button class="btn btn-success" type="button" @click="addTask">Add</button>
+                            </span>
+                        </div>
+                        <br/>
+                    </div>
+                    <div class="offset-md-3 col-md-6 text-xs-center">
+                        <br/>
+                        <div class="btn-group" data-toggle="buttons">
+                          <label class="btn btn-primary">
+                            <input type="radio" value="showAll" v-model="show"> All Tasks
+                          </label>
+                          <label class="btn btn-primary">
+                            <input type="radio" value="showCompleted" v-model="show"> Completed Tasks
+                          </label>
+                          <label class="btn btn-primary">
+                            <input type="radio" value="showIncomplete" v-model="show"> Incomplete Tasks
+                          </label>
+                        </div>
+                        <br/>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="card">
-            <div class="card-block">
-              <h3 class="card-title">Incomplete Tasks</h3>
-              <div class="input-group card-text">
-                <span class="input-group-addon">
-                  <input type="checkbox" aria-label="Checkbox for following text input">
-                </span>
-                <input type="text" class="form-control" aria-label="Text input with checkbox">
-              </div>
+            <br/>
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-4 col-md-4" v-if="show === 'showAll'">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">All Tasks</h3>
+                                <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4" v-if="show === 'showCompleted'">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Complete Tasks</h3>
+                                <div class="input-group card-text">
+                                    <span class="input-group-addon">
+                                      <input type="checkbox" aria-label="Checkbox for following text input">
+                                    </span>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offset-md-4 col-md-4" v-if="show === 'showIncomplete'">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Incomplete Tasks</h3>
+                                <div class="input-group card-text">
+                                    <span class="input-group-addon">
+                                      <input type="checkbox" aria-label="Checkbox for following text input">
+                                    </span>
+                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
-    </div>
 </body>
 <script src="https://unpkg.com/vue/dist/vue.js"></script>
 <script src="scripts/main.js"></script>
