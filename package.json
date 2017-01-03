@@ -1,7 +1,7 @@
 {
-  "name": "learn-vuejs-basics",
+  "name": "todo-vue",
   "version": "0.0.1",
-  "description": "Learn Vue.js step-by-step.",
+  "description": "A simple todo using Vue.js 2.0 and Bootstrap 4",
   "scripts": {
     "test": "gulp serve"
   },
@@ -9,9 +9,11 @@
     "vuejs",
     "learn",
     "vue.js",
+    "bootstrap 4",
+    "todo",
     "tutorial"
   ],
-  "author": "Tanmay Desai <thinktanmay@gmail.com>",
+  "author": "Chinmay Desai <chinmay@chinmay.com.au>",
   "license": "MIT",
   "devDependencies": {
     "browser-sync": "^2.18.5",
