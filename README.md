@@ -10,3 +10,5 @@ An example ToDo application using Bootstrap 4 and Vue.js 2.0 utilising basic dir
 3. Run `gulp serve`.
 
 Enjoy!
+
+P.S.- There is no persistance at the moment. However one can see how Vue.js directives, component and computed properties can be used.
