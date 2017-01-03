@@ -32,6 +32,7 @@
                         </div>
                         <br/>
                     </div>
+                    <!--
                     <div class="offset-md-3 col-md-6 text-xs-center">
                         <br/>
                         <div class="btn-group" data-toggle="buttons">
@@ -46,13 +47,13 @@
                           </label>
                         </div>
                         <br/>
-                    </div>
+                    </div>-->
                 </div>
             </div>
             <br/>
             <div class="container">
                 <div class="row">
-                    <div class="offset-md-4 col-md-4" v-if="show === 'showAll'">
+                    <div class="col-md-4">
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">All Tasks</h3>
@@ -60,16 +61,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Complete Tasks</h3>
+                                <todo-item v-for="item in completedTodos" v-bind:todo="item"></todo-item>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">Incomplete Tasks</h3>
+                                <todo-item v-for="item in incompleteTodos" v-bind:todo="item"></todo-item>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--
+            <div class="container">
+                <div class="row">
+                    <div class="offset-md-4 col-md-4" v-if="show === 'showAll'">
+                        <div class="card">
+                            <div class="card-block">
+                                <h3 class="card-title">All Tasks</h3>
+                                <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
                     <div class="offset-md-4 col-md-4" v-if="show === 'showCompleted'">
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">Complete Tasks</h3>
-                                <div class="input-group card-text">
-                                    <span class="input-group-addon">
-                                      <input type="checkbox" aria-label="Checkbox for following text input">
-                                    </span>
-                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
-                                </div>
+                                <todo-item v-for="completed in completedTodos" v-bind:todo="completed"></todo-item>
                             </div>
                         </div>
                     </div>
@@ -77,16 +102,11 @@
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">Incomplete Tasks</h3>
-                                <div class="input-group card-text">
-                                    <span class="input-group-addon">
-                                      <input type="checkbox" aria-label="Checkbox for following text input">
-                                    </span>
-                                    <input type="text" class="form-control" aria-label="Text input with checkbox">
-                                </div>
+                                <todo-item v-for="incomplete in incompleteTodos" v-bind:todo="incomplete"></todo-item>
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>-->
             </div>
         </div>
 </body>
