@@ -12,8 +12,10 @@ Vue.component('todo-item', {
 var app = new Vue({
     el: '#root',
     data: {
-        show: '',
+        show: 'showAll',
         task: '',
+        activeClass: 'active',
+        defaultClass: 'btn btn-primary',
         todos: [
         ],
 

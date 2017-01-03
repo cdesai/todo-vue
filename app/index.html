@@ -32,36 +32,36 @@
                         </div>
                         <br/>
                     </div>
-                    <!--
+
                     <div class="offset-md-3 col-md-6 text-xs-center">
                         <br/>
                         <div class="btn-group" data-toggle="buttons">
-                          <label class="btn btn-primary">
+                          <label :class="[ show === 'showAll' ? activeClass : '', defaultClass]">
                             <input type="radio" value="showAll" v-model="show"> All Tasks
                           </label>
-                          <label class="btn btn-primary">
+                          <label :class="[ show === 'showCompleted' ? activeClass : '', defaultClass]">
                             <input type="radio" value="showCompleted" v-model="show"> Completed Tasks
                           </label>
-                          <label class="btn btn-primary">
+                          <label :class="[ show === 'showIncomplete' ? activeClass : '', defaultClass]">
                             <input type="radio" value="showIncomplete" v-model="show"> Incomplete Tasks
                           </label>
                         </div>
                         <br/>
-                    </div>-->
+                    </div>
                 </div>
             </div>
             <br/>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="offset-md-3 col-md-6" v-if="show === 'showAll'">
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">All Tasks</h3>
-                                <todo-item v-for="item in allTodos" v-bind:todo="item"></todo-item>
+                                <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="offset-md-3 col-md-6" v-if="show === 'showCompleted'">
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">Complete Tasks</h3>
@@ -69,7 +69,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="offset-md-3 col-md-6" v-if="show === 'showIncomplete'">
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">Incomplete Tasks</h3>
@@ -78,35 +78,6 @@
                         </div>
                     </div>
                 </div>
-            <!--
-            <div class="container">
-                <div class="row">
-                    <div class="offset-md-4 col-md-4" v-if="show === 'showAll'">
-                        <div class="card">
-                            <div class="card-block">
-                                <h3 class="card-title">All Tasks</h3>
-                                <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
-                                <br/>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offset-md-4 col-md-4" v-if="show === 'showCompleted'">
-                        <div class="card">
-                            <div class="card-block">
-                                <h3 class="card-title">Complete Tasks</h3>
-                                <todo-item v-for="completed in completedTodos" v-bind:todo="completed"></todo-item>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="offset-md-4 col-md-4" v-if="show === 'showIncomplete'">
-                        <div class="card">
-                            <div class="card-block">
-                                <h3 class="card-title">Incomplete Tasks</h3>
-                                <todo-item v-for="incomplete in incompleteTodos" v-bind:todo="incomplete"></todo-item>
-                            </div>
-                        </div>
-                    </div>
-                </div>-->
             </div>
         </div>
       </div>
