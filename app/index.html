@@ -56,7 +56,7 @@
                     <div class="offset-md-3 col-md-6" v-if="show === 'showAll'">
                         <div class="card">
                             <div class="card-block">
-                                <h3 class="card-title">All Tasks</h3>
+                                <h3 class="card-title text-xs-center">All Tasks</h3>
                                 <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
                             </div>
                         </div>
@@ -64,7 +64,7 @@
                     <div class="offset-md-3 col-md-6" v-if="show === 'showCompleted'">
                         <div class="card">
                             <div class="card-block">
-                                <h3 class="card-title">Complete Tasks</h3>
+                                <h3 class="card-title text-xs-center">Completed Tasks</h3>
                                 <todo-item v-for="item in completedTodos" v-bind:todo="item"></todo-item>
                             </div>
                         </div>
@@ -72,7 +72,7 @@
                     <div class="offset-md-3 col-md-6" v-if="show === 'showIncomplete'">
                         <div class="card">
                             <div class="card-block">
-                                <h3 class="card-title">Incomplete Tasks</h3>
+                                <h3 class="card-title text-xs-center">Incomplete Tasks</h3>
                                 <todo-item v-for="item in incompleteTodos" v-bind:todo="item"></todo-item>
                             </div>
                         </div>
