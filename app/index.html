@@ -25,7 +25,7 @@
                     <div class="offset-md-3 col-md-6">
                         <br/>
                         <div class="input-group card-text">
-                            <input type="text" class="form-control" v-model="task">
+                            <input type="text" class="form-control" v-model="task" placeholder="Add a task">
                             <span class="input-group-btn">
                               <button class="btn btn-success" type="button" @click="addTask">Add</button>
                             </span>
@@ -57,7 +57,7 @@
                         <div class="card">
                             <div class="card-block">
                                 <h3 class="card-title">All Tasks</h3>
-                                <todo-item v-for="item in todos" v-bind:todo="item"></todo-item>
+                                <todo-item v-for="item in allTodos" v-bind:todo="item"></todo-item>
                             </div>
                         </div>
                     </div>

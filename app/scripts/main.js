@@ -3,7 +3,7 @@ Vue.component('todo-item', {
   template: '\
     <div class="input-group card-text" v-once>\
       <span class="input-group-addon">\
-        <input type="checkbox" v-bind:checked="todo.status" v-model="todo.status">\
+        <input type="checkbox" v-model="todo.status">\
       </span>\
       <label class="form-control">{{todo.description}}</label>\
     </div>'
@@ -13,7 +13,7 @@ var app = new Vue({
     el: '#root',
     data: {
         show: '',
-        task: 'Add a task',
+        task: '',
         todos: [
         ],
 
@@ -21,11 +21,16 @@ var app = new Vue({
 
     methods: {
       addTask(){
-        return this.todos.push({description: this.task, status: false});
+        this.todos.push({description: this.task, status: false})
+        this.task = '';
+        return;
       }
     },
 
     computed: {
+      allTodos(){
+        return this.todos;
+      },
       completedTodos(){
         return this.todos.filter(todo => todo.status);
       },
