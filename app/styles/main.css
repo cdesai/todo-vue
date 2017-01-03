@@ -30,3 +30,7 @@ span, b, i {
     user-select: none;
     overflow-x: auto;
 }
+
+.input-group {
+      padding-bottom: 10px;
+}
