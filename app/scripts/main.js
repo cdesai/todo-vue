@@ -1,7 +1,7 @@
 Vue.component('todo-item', {
   props: ['todo'],
   template: '\
-    <div class="input-group card-text" v-once>\
+    <div class="input-group card-text">\
       <span class="input-group-addon">\
         <input type="checkbox" v-model="todo.status">\
       </span>\
