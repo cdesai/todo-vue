@@ -5,8 +5,8 @@ Vue.component('todo-item', {
       <span class="input-group-addon">\
         <input type="checkbox" v-model="todo.status">\
       </span>\
-      <label class="form-control">{{todo.description}}</label>\
-    </div>'
+      <label class="form-control" v-bind:class="{ strike: todo.status }">{{todo.description}}</label>\
+    </div>' 
 });
 
 var app = new Vue({
@@ -23,7 +23,7 @@ var app = new Vue({
 
     methods: {
       addTask(){
-        this.todos.push({description: this.task, status: false})
+        this.todos.push({description: this.task, status: false});
         this.task = '';
         return;
       }

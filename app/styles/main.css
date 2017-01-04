@@ -35,6 +35,10 @@ span, b, i {
       padding-bottom: 10px;
 }
 
+label.strike {
+  text-decoration: line-through;
+}
+
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
